@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok OAuth Callback | AI US Stock Watch</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <main class="legal-page">
+    <section class="hero compact">
+      <p class="eyebrow">AI US Stock Watch</p>
+      <h1>TikTok OAuth Callback</h1>
+      <p>This page is used only to complete TikTok authorization for owner-reviewed draft video uploads.</p>
+    </section>
+    <section class="content-block">
+      <h2>Authorization status</h2>
+      <p id="status">Waiting for authorization parameters.</p>
+      <dl class="callback-values">
+        <dt>Code</dt>
+        <dd id="code">Not provided</dd>
+        <dt>State</dt>
+        <dd id="state">Not provided</dd>
+      </dl>
+      <p>No TikTok authorization data is stored or transmitted by this static page.</p>
+    </section>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+    document.getElementById('code').textContent = code || 'Not provided';
+    document.getElementById('state').textContent = state || 'Not provided';
+    document.getElementById('status').textContent = code ? 'Authorization callback received.' : 'No authorization code was provided.';
+  </script>
+</body>
+</html>
